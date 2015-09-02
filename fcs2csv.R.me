@@ -1,0 +1,74 @@
+#!/usr/bin/Rscript
+#
+# This R file:
+# 1) asks for input file name, just input the name as "XXX.fcs", which should exist under folder inputFiles/ 
+# 2) computes column-wise normalized centroids distances normalized to 0-1000
+#    for inputFile named inputFiles/XXX.fcs, and writes distances to controlDist/XXX.csv
+#    in the format
+#       #rows #columns
+#       followed by space seperated control points or control distances
+
+library("methods")
+library("flowCore")
+library("cluster")
+
+args <- commandArgs(TRUE)
+wd <- getwd()
+
+#inputFilePath <- capture.output(cat(wd,'/inputFiles'))
+#inputFilePath <- gsub(pattern = " ", replacement = "", x = inputFilePath, ignore.case = T)
+#print(inputFilePath)
+
+#for (l in 1:30)
+{ 
+  startTime <- proc.time()
+  print("======================================================================================================")
+  #filename <- basename(args) #file.choose() #listOfFiles[l] #
+  filename <- args
+  print(sprintf("Filename : %s",filename))
+  dataFilename <- gsub(pattern = "fcs$", replacement = "1.txt", x = filename, ignore.case = T)  
+  
+  print(dataFilename)  
+
+#  setwd(inputFilePath)
+
+  tryCatch({
+  	sampdat <- read.FCS(filename)
+	#setwd("../")
+  	fdat <- exprs(sampdat)
+  	fdat[fdat<1] = 1
+ 	fdat <- unique(na.omit(fdat))
+  	logfdat <-log10(fdat)
+  	logfdat <-  unique(na.omit(logfdat))
+  	idx <- apply(logfdat, 1, function(x) all(is.finite(x)))
+  	puredata <- logfdat[idx, ]
+  	print(dim(puredata))
+  
+  	nrows <- dim(puredata)[1]
+  	ncols <- dim(puredata)[2]
+  	data <- array(puredata, dim = c(nrows, ncols))
+
+  	# column-wise normalize data to 0-1 range
+  	for (k in 1:dim(data)[2]){
+    		m <- min(data[,k])
+    		if (max(data[,k]) == m){
+      			print(sprintf("col %d max: %.2f min : %.2f",k, m, max(data[,k]))) 
+      			data[,k] <- data[,k] / max(data[,k])
+    		}
+    		else{
+      			data[,k] <- (data[,k] - m) / (max(data[,k]) - m)
+    		}
+  	}
+ 	
+	#setwd("../")
+  	write.table(data, file=dataFilename,  sep=' ', append=TRUE, row.names=FALSE, col.names=FALSE)
+
+  	elapsedTime <- proc.time() - startTime
+  	print(sprintf("%s %s %s %.2f %s","Processing ",filename," is ",elapsedTime["elapsed"]," seconds."))  
+   },
+   error = function(e) { print(e);}
+   )
+	
+  print("======================================================================================================")
+
+}
