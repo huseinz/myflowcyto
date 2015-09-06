@@ -1,0 +1,66 @@
+Loading required package: foreach
+Loading required package: iterators
+Loading required package: parallel
+KernSmooth 2.23 loaded
+Copyright M. P. Wand 1997-2009
+Warning messages:
+1: In rgl.init(initValue, onlyNULL) : RGL: unable to open X11 display
+2: In fun(libname, pkgname) : error in rgl_init
+3: In fun(libname, pkgname) : no DISPLAY variable so Tk is not available
+ [1] "fcsFiles/001.fcs" "fcsFiles/002.fcs" "fcsFiles/003.fcs" "fcsFiles/004.fcs"
+ [5] "fcsFiles/005.fcs" "fcsFiles/006.fcs" "fcsFiles/007.fcs" "fcsFiles/008.fcs"
+ [9] "fcsFiles/009.fcs" "fcsFiles/010.fcs" "fcsFiles/011.fcs" "fcsFiles/012.fcs"
+[13] "fcsFiles/013.fcs" "fcsFiles/014.fcs" "fcsFiles/015.fcs" "fcsFiles/016.fcs"
+[17] "fcsFiles/017.fcs" "fcsFiles/018.fcs" "fcsFiles/019.fcs" "fcsFiles/020.fcs"
+[21] "fcsFiles/021.fcs" "fcsFiles/022.fcs" "fcsFiles/023.fcs" "fcsFiles/024.fcs"
+[25] "fcsFiles/025.fcs" "fcsFiles/026.fcs" "fcsFiles/027.fcs" "fcsFiles/028.fcs"
+[29] "fcsFiles/029.fcs" "fcsFiles/030.fcs"
+Loading required package: foreach
+Loading required package: iterators
+Loading required package: parallel
+KernSmooth 2.23 loaded
+Copyright M. P. Wand 1997-2009
+Warning messages:
+1: In rgl.init(initValue, onlyNULL) : RGL: unable to open X11 display
+2: In fun(libname, pkgname) : error in rgl_init
+3: In fun(libname, pkgname) : no DISPLAY variable so Tk is not available
+Loading required package: compiler
+[1] 0
+ [1] "fcsFiles/001.fcs" "fcsFiles/002.fcs" "fcsFiles/003.fcs" "fcsFiles/004.fcs"
+ [5] "fcsFiles/005.fcs" "fcsFiles/006.fcs" "fcsFiles/007.fcs" "fcsFiles/008.fcs"
+ [9] "fcsFiles/009.fcs" "fcsFiles/010.fcs" "fcsFiles/011.fcs" "fcsFiles/012.fcs"
+[13] "fcsFiles/013.fcs" "fcsFiles/014.fcs" "fcsFiles/015.fcs" "fcsFiles/016.fcs"
+[17] "fcsFiles/017.fcs" "fcsFiles/018.fcs" "fcsFiles/019.fcs" "fcsFiles/020.fcs"
+[21] "fcsFiles/021.fcs" "fcsFiles/022.fcs" "fcsFiles/023.fcs" "fcsFiles/024.fcs"
+[25] "fcsFiles/025.fcs" "fcsFiles/026.fcs" "fcsFiles/027.fcs" "fcsFiles/028.fcs"
+[29] "fcsFiles/029.fcs" "fcsFiles/030.fcs"
+Loading required package: foreach
+Loading required package: iterators
+Loading required package: parallel
+KernSmooth 2.23 loaded
+Copyright M. P. Wand 1997-2009
+Warning messages:
+1: In rgl.init(initValue, onlyNULL) : RGL: unable to open X11 display
+2: In fun(libname, pkgname) : error in rgl_init
+3: In fun(libname, pkgname) : no DISPLAY variable so Tk is not available
+Loading required package: compiler
+[1] 0
+ [1] "fcsFiles/001.fcs" "fcsFiles/002.fcs" "fcsFiles/003.fcs" "fcsFiles/004.fcs"
+ [5] "fcsFiles/005.fcs" "fcsFiles/006.fcs" "fcsFiles/007.fcs" "fcsFiles/008.fcs"
+ [9] "fcsFiles/009.fcs" "fcsFiles/010.fcs" "fcsFiles/011.fcs" "fcsFiles/012.fcs"
+[13] "fcsFiles/013.fcs" "fcsFiles/014.fcs" "fcsFiles/015.fcs" "fcsFiles/016.fcs"
+[17] "fcsFiles/017.fcs" "fcsFiles/018.fcs" "fcsFiles/019.fcs" "fcsFiles/020.fcs"
+[21] "fcsFiles/021.fcs" "fcsFiles/022.fcs" "fcsFiles/023.fcs" "fcsFiles/024.fcs"
+[25] "fcsFiles/025.fcs" "fcsFiles/026.fcs" "fcsFiles/027.fcs" "fcsFiles/028.fcs"
+[29] "fcsFiles/029.fcs" "fcsFiles/030.fcs"
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.__classVersion__' 
+Note: no visible global function definition for 'open.ncdf' 
+Note: no visible global function definition for 'get.var.ncdf' 
+Note: no visible global function definition for 'close.ncdf' 

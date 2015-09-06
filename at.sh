@@ -1,0 +1,1 @@
+./mdstest.R > out

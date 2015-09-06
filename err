@@ -1,0 +1,9 @@
+Loading required package: foreach
+Loading required package: iterators
+Loading required package: parallel
+KernSmooth 2.23 loaded
+Copyright M. P. Wand 1997-2009
+Warning messages:
+1: In rgl.init(initValue, onlyNULL) : RGL: unable to open X11 display
+2: In fun(libname, pkgname) : error in rgl_init
+3: In fun(libname, pkgname) : no DISPLAY variable so Tk is not available
