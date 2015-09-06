@@ -15,15 +15,15 @@ cl <- makeCluster(30)
 registerDoParallel(cl)
 
 print(cl)
-for(i in 1:2){
-#out <- foreach(i=1:30, .packages=c('flowCore', 'MASS'), .combine='c') %dopar% {
+#for(i in 1:2){
+out <- foreach(i=1:30, .packages=c('flowCore', 'MASS'), .combine='c') %dopar% {
 
 	tryCatch({
 	
 	#extract point data from file 
   	data <- read.FCS(filenames[i])
   	data <- exprs(data)
-  	data[data<1] = 1
+#  	data[data<1] = 1
 	
  	data <- unique(na.omit(data))
   	data <-log10(data)
@@ -52,13 +52,13 @@ for(i in 1:2){
   	}
 
 	#generate dist matrix from first 100 points
-	d <- dist(head(data, 200), method = "manhattan")
+	d <- dist(head(data, 100), method = "manhattan")
 	#run cmdscale
 	fit <- cmdscale(d, k = 2, eig = FALSE, x.ret = FALSE, add = FALSE)	
 	write.matrix(fit, file=sprintf("log/%s", i), sep = " ")
 	#generate dist matrix from projected points
 	p <- dist(fit, method = "manhattan")
-	#calculate distortion
+	#return max distortion
 	distortion <- max(abs(d - p))	
 	distortion
 	},
