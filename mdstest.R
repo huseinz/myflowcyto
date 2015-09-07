@@ -23,7 +23,7 @@ out <- foreach(i=1:30, .packages=c('flowCore', 'MASS'), .combine='c') %dopar% {
 	#extract point data from file 
   	data <- read.FCS(filenames[i])
   	data <- exprs(data)
-#  	data[data<1] = 1
+  	#data[data<1] = 1
 	
  	data <- unique(na.omit(data))
   	data <-log10(data)
