@@ -26,7 +26,7 @@ if(is.na(size)){
 
 cat(size, file="outfile.txt", sep = "\n")
 
-for(i in 1:1){
+for(i in 1:30){
 #foreach(i=1:30, .packages=c('flowCore', 'MASS'), .combine='c') %dopar% {
 
 	tryCatch({
@@ -38,18 +38,33 @@ for(i in 1:1){
 	#set values < 1 to 1
   	data[data<1] = 1
 	
+#	print("orig")
+#	print(head(data, 10))
 	#apply log to columns 
 	data[, 3:12] = log10(data[, 3:12]) 
  	data <- unique(na.omit(data))
 
+#	print("log")
+#	print(head(data, 10))
+
 	#normalize columns
 
+#	apply(data, 2, function(x){x * 2})
+	for(j in 1:ncol(data)){
+		col_max = max(data[,j])
+		print(col_max)
+		data[,j] <- data[,j] * (1000 / col_max)
+	}
+# 	data <- unique(na.omit(data))
 
+#	print("normalize")
+#	print(head(data, 10))
 
 	nrows <- dim(data)[1]
 	ncols <- dim(data)[2]
 	data <- array(data, dim = c(nrows, ncols))
 	print(nrows)
+
 
 	data <- data[sample(1:nrows, size, replace = FALSE), ]
 
@@ -108,7 +123,6 @@ for(i in 1:1){
 	#write table
 
 	cat(max_distortion, file="outfile.txt", sep = "\n", append = TRUE)
-
 	},
 	error = function(e) {print(e);}
 	)
