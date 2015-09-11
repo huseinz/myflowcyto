@@ -26,7 +26,7 @@ if(is.na(size)){
 
 cat(size, file="outfile.txt", sep = "\n")
 
-for(i in 1:30){
+for(i in 26:26){
 #foreach(i=1:30, .packages=c('flowCore', 'MASS'), .combine='c') %dopar% {
 
 	tryCatch({
@@ -76,9 +76,10 @@ for(i in 1:30){
 	d <- dist(data, method = "manhattan")
 
 	#write d to file
-	cat(size, file=sprintf("dist/%s", i), sep="\n")	
-	write.table(as.matrix(d), file=sprintf("dist/%s", i), append = TRUE, sep = " ", col.names = FALSE, row.names = FALSE)
+	cat(size, file=sprintf("dist/%s.2", i), sep="\n")	
+	write.table(as.matrix(d), file=sprintf("dist/%s.2", i), append = TRUE, sep = " ", col.names = FALSE, row.names = FALSE)
 
+if(FALSE){
 	#run MDS
 	fit <- cmdscale(d, eig = FALSE, x.ret = FALSE, add = FALSE, k = 2) 
 
@@ -123,6 +124,7 @@ for(i in 1:30){
 	#write table
 
 	cat(max_distortion, file="outfile.txt", sep = "\n", append = TRUE)
+	}
 	},
 	error = function(e) {print(e);}
 	)
